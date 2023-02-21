@@ -14,5 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('accueil');
+})->name('home'); //Cette route retourne la vue accueil.blade.php (page client)
+
