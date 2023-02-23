@@ -24,10 +24,11 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
+            CategorySeeder::class,
             SizeSeeder::class,
             UserSeeder::class,
-            CategorySeeder::class,
-            ProductSeeder::class
+            ProductSeeder::class,
+            PivotSizeSeeder::class
         ]);
     }
 }

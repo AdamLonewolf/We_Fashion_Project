@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pivot_size_products', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('size_id')->nullable()->constrained('sizes')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('product_id')->nullable()->constrained('products')->onDelete('cascade')->onUpdate('cascade');
-            $table->primary(["size_id", "product_id"]);
             $table->timestamps();
         });
     }
