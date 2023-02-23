@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,15 +18,24 @@ use App\Http\Controllers\DashboardController;
 
 //Mes routes
 
-Route::get('/', function () {
-    return view('home');
-})->name('home'); //Cette route retourne la vue accueil.blade.php (page client)
+
+//Authentification
 
 Route::get('/login',[AuthController::class,"login"])->name('login');
 Route::post('/login',[AuthController::class,"authenticate"])->name('authenticate');
 Route::post('/logout',[AuthController::class,"logout"])->name('logout');
 Route::get('/admin',[DashboardController::class,"index"])->name('dashboard')->middleware('auth');
+
+//Page client
+
 Route::post('/register',[AuthController::class,"register"])->name('register');
+Route::get('/', [HomeProductController::class, 'all'])->name('home');
+Route::get('/en_solde', [HomeProductController::class, 'state'])->name('state');
+Route::get('/categorie/{id}', [HomeProductController::class, 'sortByCategorie'])->name('categorie');
+Route::get('/show/{id}', [HomeProductController::class, 'show'])->name('show');
+
+
+
 Route::get('/register', function () {
     return view('auth.register');
 })->name('register');//Cette route retourne la vue de la page d'inscription

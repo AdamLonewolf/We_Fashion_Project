@@ -6,22 +6,21 @@
         <section class="py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
-                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" style="height:550px !important; width:auto" src="" alt="" /></div>
+                   
+                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" style="height:550px !important; width:auto" src="{{URL::to($product->picture)}}" alt="" /></div>
                     <div class="col-md-6">
-                        <h1 class="display-5 fw-bolder product-name" > </h1>
-                        <h4 class="fw-bolder product-description" style=""></h4>
+                        <h1 class="display-5 fw-bolder product-name" >{{$product->name}}</h1>
+                        <h6 class="fw-bolder product-description" style="">{{$product->description}}</h4>
                         <div class="fs-5 mb-5">
-                            <span style="" class="price" ></span>
+                            <span style="color:#E74C3C " class="price" >{{$product->price}} €</span>
                         </div>
                         <form action="" method="POST">
                             @csrf
                         <label for="size">Choisissez votre taille</label>
                         <select name="size" id="size" class="form-control">
-                            <option value="xs">XS</option>
-                            <option value="s">S</option>
-                            <option value="m">M</option>
-                            <option value="l">L</option>
-                            <option value="xl">XL</option>
+                            @foreach ($product->ProductSizes as $size )
+                            <option value="{{$size->id}}">{{$size->type}}</option>
+                            @endforeach
                         </select>
                     </form>
                         <p class="lead"></p>
@@ -35,6 +34,7 @@
                         </div>
                     </div>
                 </div>
+                   
             </div>
         </section>
         <!-- Footer-->
