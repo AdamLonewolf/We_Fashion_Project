@@ -15,7 +15,7 @@ class PivotSizeSeeder extends Seeder
      */
     public function run(): void
     {
-        // créer 240 relation dans la table pivot_product_size
+        // créer 240 relations dans la table pivot_product_size
         for ($i = 0; $i < 240; $i++) {
             // génère un produit aléatoire
             $product = Product::all()->random();

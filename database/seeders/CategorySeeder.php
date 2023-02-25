@@ -16,11 +16,11 @@ class CategorySeeder extends Seeder
         //Je seed la base de données avec les deux catégories : Femme, et Homme.
         
         $category = new Category();
-        $category->name = 'homme';
+        $category->name = 'Homme';
         $category->save();
 
         $category = new Category();
-        $category->name = 'femme';
+        $category->name = 'Femme';
         $category->save();
     }
 }

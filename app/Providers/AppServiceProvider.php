@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Providers;
-
+use App\Http\view\headerComposer;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
@@ -20,7 +20,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Paginator::useBootstrapFive();
-        Paginator::useBootstrapFour();
+       
+        //Le contenu de mes variables dans la fonction composer du fichier headercomposer va apparaître sur toutes les pages
+        
+        view()->composer("*", headerComposer::class); 
+
+         //Je choisis la version Bootstrap 5 pour ma pagination
+
+         Paginator::useBootstrapFour();
     }
 }

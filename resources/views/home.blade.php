@@ -7,7 +7,7 @@
         <!-- Section-->
         <section class="py-5" style="margin-top:60px">
             <div class="container px-4 px-lg-5 mt-5">
-                {{$products->count()}} Résultats
+                <p style="font-size: 19px; text-align:end"><span class="mx-2" style="font-weight:bold">{{$products->count()}}</span>Résultats</p> 
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                 @foreach ($products as $p)
                 <div class="col mb-5">
@@ -29,11 +29,14 @@
                         </div>
                     </div>
                 </div> 
-                @endforeach
-                   
-                              
+                @endforeach                              
                 </div>
-                {{$products->links()}}
+                {{-- Pagination de la page --}}
+
+                <div class="d-flex justify-content-center paginator">
+                    {{$products->links()}} 
+                </div>
+                
             </div>
         </section>
         <!-- Footer-->

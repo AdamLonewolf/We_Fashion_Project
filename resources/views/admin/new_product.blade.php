@@ -19,7 +19,7 @@
 </head>
 
 <body style="background: linear-gradient(to right, #76b852, #8dc26f); ">
-    <form class="form-new" action="" method="" enctype="multipart/form-data">
+    <form class="form-new" action="{{route('store_product')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <h3 class="text-center my-3">Création d'un nouveau produit</h3>
         <h5 class="text-center my-2">Veuillez renseigner les champs ci-dessous</h5>
@@ -28,7 +28,7 @@
                 <div class="form-group my-3">
                     <label for="name">Nom du produit</label>
                     <input type="text" class="form-control" id="name" name="name"
-                        placeholder="Entrez le nom du produit (100 caractères max)..." maxlength="100" required>
+                        placeholder="Entrez le nom du produit (100 caractères max)..." maxlength="100">
                 </div>
                 <div class="form-group my-3">
                     <label for="description">Description</label>
@@ -38,32 +38,47 @@
                 <div class="form-group my-3">
                     <label for="price">Prix</label>
                     <input type="number" class="form-control" id="price" name="price"
-                        placeholder="Entrez le prix du produit..." required>
+                        placeholder="Entrez le prix du produit...">
                 </div>
                 <div class="form-group my-3">
                     <label for="reference">Reference</label>
                     <input type="text" class="form-control" id="reference" name="reference"
-                        placeholder="Entrez la référence du produit... (16 caractères maximum)" maxlength="16" required>
+                        placeholder="Entrez la référence du produit... (16 caractères maximum)" maxlength="16">
                 </div>
             </div>
             <div class="bloc-2 p-3">
                 <div class="form-group my-3">
+                    <label for="exampleFormControlSelect1">Visibilité du produit</label>
+                    <select class="form-control" id="is_visible" name="is_visible">
+                        <option value="1">Public</option>
+                        <option value="0">Non Public</option>
+                    </select>
+                </div>
+                <div class="form-group my-3">
                     <label for="exampleFormControlSelect1">Etat du produit</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                        <option>1</option>
+                    <select class="form-control" id="state" name="state">
+                        
+                        <option value="1">En solde</option>
+                        <option value="0">Standard</option>
                     </select>
                 </div>
                 <div class="form-group my-3">
                     <label for="exampleFormControlSelect1">Catégorie du produit</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                        <option>1</option>
-                    </select>
+                    <select class="form-control" id="categories_id" name="categories_id">
+                    @foreach ($category as $c)    
+                        <option value="{{ $c->id }}">{{ $c->name }}</option>            
+                    @endforeach
+                </select>
                 </div>
                 <div class="form-group  my-3">
                     <label for="size">Taille du produit</label>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="size" name="size">
-                        <span class="form-check-label"></span>
+                    <div class="d-flex justify-content-start align-items-center">
+                    @foreach ($sizes as $s)
+                    <div class="form-check px-4 d-flex justify-content-center align-items-center">
+                        <input class="form-check-input" type="checkbox" value="{{ $s->id }}" name="size[]">
+                        <span class="form-check-label px-1">{{ $s->type }}</span>
+                    </div>
+                    @endforeach
                     </div>
                 </div>
                 <div class="mb-3">
@@ -73,7 +88,7 @@
             </div>
         </div>
         <div class="form-btn">
-          <button type="submit" id="submit" name="submit" style="width:50%" class="btn-submit">Créer</button>
+          <button type="submit" id="submit" name="submit" style="width:50%" class="btn-submit">Créer un produit</button>
       </div>
     </form>
 </body>

@@ -322,8 +322,7 @@ div label{
   position: relative;
   background-color: var(--body);
   width: 1100px;
-
-  height: 700px;
+  height: 800px;
   border-radius: 5px;
   padding: 10px 60px;
   justify-content: center;
@@ -362,7 +361,18 @@ div label{
 
 
 
+/*Pagination*/
 
+
+.paginator .page-link{
+  background-color: var(--color_first) !important;
+  color: var(--color_third);
+}
+
+.active .page-link {
+  background-color: var(--color_second) !important;
+  border: none;
+}
 
 
 

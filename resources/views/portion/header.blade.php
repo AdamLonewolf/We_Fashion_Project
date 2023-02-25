@@ -11,14 +11,18 @@
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="">Soldes</a>
+              <a class="nav-link" href="{{route('state')}}">Soldes</a>
             </li>
+            
+            @foreach ($categoryall as $category)
+            
             <li class="nav-item ">
-              <a class="nav-link" href="#">Hommes</a>
+              <a class="nav-link" href="{{route('categorie',["id"=>$category->id])}}">{{$category->name}}</a>
             </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="#">Femmes</a>
-              </li>
+            @endforeach
+            
+            
+      
           </ul>
         </div>
         <div class="div-panier" style="margin-left:40px">
