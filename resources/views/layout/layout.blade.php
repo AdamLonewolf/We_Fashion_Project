@@ -19,4 +19,5 @@
 </body>
     <!-- Bootstrap core JS-->
     <script src="{{URL::to('js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{URL::to('js/script.js')}}"></script>
 </html>

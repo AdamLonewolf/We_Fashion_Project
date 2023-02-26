@@ -45,7 +45,7 @@ Route::get('/admin/new_product',[ProductController::class,"create"])->name('new_
 Route::post('/admin/store_product',[ProductController::class,"store"])->name('store_product');
 Route::get('/admin/edit/{id}',[ProductController::class,"edit"])->name('edit_product');
 Route::post('/admin/update_product',[ProductController::class,"update"])->name('update_product'); 
-Route::post('/admin/destroy',[ProductController::class,"destroy"])->name('destroy_product');
+Route::post('/admin/destroy_product',[ProductController::class,"destroy"])->name('destroy_product');
 
 
 //Routes pour la page Admin (CRUD Catégories)

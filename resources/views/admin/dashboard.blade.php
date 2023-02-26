@@ -54,41 +54,17 @@
                         <td>{{ $product->state }}</td>
                         <td>
                             <div class="d-flex" style="">
-                                <button class="supprimer mx-3" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                    style="border:none"><i class="bi bi-trash-fill"></i></button>
+                                    <form class="form-delete" action="{{ route('destroy_product') }}" method="post">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ $product->id }}">
+                                        <button class="supprimer mx-3" style="border:none"><i class="bi bi-trash-fill"></i></button>
+                                    </form>
                                 <a href="{{ route('edit_product', ['id' => $product->id]) }}" class="modifier"><i
                                         class="bi bi-pencil-square"></i></a>
                             </div>
                         </td>
                     </tr>
                 @endforeach
-
-                    <!-- Fenêtre Modale quand on clique sur supprimer-->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" style="font-weight:bold" id="exampleModalLabel">
-                                        Confirmation</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <span style="color:#E74C3C" class="fw-bold">ATTENTION :</span> Vous êtes sur le point de supprimer un produit, voulez vous confirmer cette action ?
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Annuler</button>
-                                    <form action="{{ route('destroy_product') }}" method="post">
-                                        @csrf
-                                        <input type="hidden" name="id" value="{{ $product->id }}">
-                                        <button type="submit" class="btn btn-danger">Confirmer</button>
-                                    </form>
-
-                                </div>
-                            </div>
-                        </div>
                     </div>
             </tbody>
         </table>
