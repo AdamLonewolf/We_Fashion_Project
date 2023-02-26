@@ -1,5 +1,6 @@
 @extends('layout.layout')
 @section('fils')
+
     {{-- header de la page --}}
     <header>
         <nav class=" my-navbar navbar navbar-expand-lg navbar-light fixed-top" style="position:relative;">
@@ -32,73 +33,71 @@
     {{-- Table des produits --}}
     <section class="table-section p-5" style="">
         <div class="new">
-            <a href="{{ route('new_product') }}" class="add-btn"><i class="bi bi-plus-lg" style="margin-right: 10px"></i>
+            <a href="{{route('new_category')}}" class="add-btn"><i class="bi bi-plus-lg" style="margin-right: 10px"></i>
                 Nouveau</a>
         </div>
         <table class="table table-responsive my-5">
             <thead class="table-dark">
                 <tr>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Catégorie</th>
-                    <th scope="col">Prix</th>
-                    <th scope="col">Etat</th>
-                    <th scope="col"></th>
+                    <th scope="col">Nom des catégories</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($products as $product)
+                @foreach ($category as $c)
                     <tr class="elm">
-                        <th scope="row">{{ $product->name }}</th>
-                        <td>{{ $product->CategorieProduct->name }}</td>
-                        <td>{{ $product->price }}</td>
-                        <td>{{ $product->state }}</td>
+                        <th scope="row">{{$c->name}}</th>
                         <td>
+                            
                             <div class="d-flex" style="">
                                 <button class="supprimer mx-3" data-bs-toggle="modal" data-bs-target="#exampleModal"
                                     style="border:none"><i class="bi bi-trash-fill"></i></button>
-                                <a href="{{ route('edit_product', ['id' => $product->id]) }}" class="modifier"><i
+                                </form>
+                                <a href="{{route('edit_category',["id"=>$c->id])}}" class="modifier"><i
                                         class="bi bi-pencil-square"></i></a>
                             </div>
                         </td>
-                    </tr>
-                    <!-- Fenêtre Modale quand on clique sur supprimer-->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" style="font-weight:bold" id="exampleModalLabel">
-                                        Confirmation</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <span style="color:#E74C3C" class="fw-bold">ATTENTION :</span> Vous êtes sur le point de supprimer un produit, voulez vous confirmer cette action ?
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Annuler</button>
-                                    <form action="{{ route('destroy_product') }}" method="post">
-                                        @csrf
-                                        <input type="hidden" name="id" value="{{ $product->id }}">
-                                        <button type="submit" class="btn btn-danger">Confirmer</button>
-                                    </form>
+                        <!-- Fenêtre Modale quand on clique sur supprimer-->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" style="font-weight:bold" id="exampleModalLabel">
+                                    Confirmation</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <span style="color:#E74C3C" class="fw-bold">ATTENTION :</span> Vous êtes sur le point de
+                                supprimer une catégorie, voulez vous confirmer cette action ?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Annuler</button>
+                                    
+                                <form action="{{route('destroy_category')}}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{ $c->id }}">
+                                    <button type="submit" class="btn btn-danger">Confirmer</button>
+                                </form>
 
-                                </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </tr>
                 @endforeach
 
             </tbody>
         </table>
         <div class="d-flex justify-content-center paginator">
-            {{ $products->links() }}
+            {{ $category->links() }}
         </div>
 
 
 
     </section>
 
-    @include('portion.footer');
+
 @endsection

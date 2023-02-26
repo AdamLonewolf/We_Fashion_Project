@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\HomeProductController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomeProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,7 +38,7 @@ Route::get('/categorie/{id}', [HomeProductController::class, 'categorySort'])->n
 Route::get('/show/{id}', [HomeProductController::class, 'show'])->name('show');
 
 
-//Routes pour la page Admin
+//Routes pour la page Admin (CRUD Produits)
 
 Route::get('/admin',[ProductController::class,"index"])->name('dashboard');
 Route::get('/admin/new_product',[ProductController::class,"create"])->name('new_product');
@@ -45,3 +46,13 @@ Route::post('/admin/store_product',[ProductController::class,"store"])->name('st
 Route::get('/admin/edit/{id}',[ProductController::class,"edit"])->name('edit_product');
 Route::post('/admin/update_product',[ProductController::class,"update"])->name('update_product'); 
 Route::post('/admin/destroy',[ProductController::class,"destroy"])->name('destroy_product');
+
+
+//Routes pour la page Admin (CRUD Catégories)
+
+Route::get('/admin/categories',[CategoryController::class,"index"])->name('dashboard_category');
+Route::get('/admin/new_category',[CategoryController::class,"create"])->name('new_category');
+Route::post('/admin/new_category',[CategoryController::class,"store"])->name('store_category');
+Route::get('/admin/edit_category/{id}',[CategoryController::class,"edit"])->name('edit_category');
+Route::post('/admin/update_category',[CategoryController::class,"update"])->name('update_category'); 
+Route::post('/admin/destroy_category',[CategoryController::class,"destroy"])->name('destroy_category');

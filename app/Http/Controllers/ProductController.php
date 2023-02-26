@@ -146,7 +146,7 @@ class ProductController extends Controller
         
         //On cherche à récupérer l'id du produit qui sera soumis par formulaire
 
-        $product = Product::find($request->id); 
+        $product = Product::findOrFail($request->id);
 
         //On va détacher la liaison entre ce produit et ses tailles pour ne pas qu'il y'ait de liaison fantôme dans la table pivot
 
