@@ -10,9 +10,19 @@
                     <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" style="height:550px !important; width:auto" src="{{URL::to($product->picture)}}" alt="" /></div>
                     <div class="col-md-6">
                         <h1 class="display-5 fw-bolder product-name" >{{$product->name}}</h1>
-                        <h6 class="fw-bolder product-description" style="">{{$product->description}}</h4>
-                        <div class="fs-5 mb-5">
-                            <span style="color:#E74C3C " class="price" >{{$product->price}} €</span>
+                        
+                        <div class="fs-5 my-2">
+                            <span style="color:#E74C3C " class="price fw-bold" >{{$product->price}} €</span>
+                        </div>
+                        <div class="badge-wrapper my-1">
+                            @if($product->state == 1)
+                            <span class="badge rounded-pill" style="background-color:#E74C3C ; padding:10px 16px " >En solde</span>
+                            @else
+                            <span class="badge rounded-pill bg-dark" style="padding:10px 16px ">Standard</span>
+                            @endif
+                        </div>
+                        <div class="reference-wrapper my-4">
+                            <p class="fw-bold fs-5">Référence du produit: <span class="fst-italic">{{$product->reference}}</span></p>
                         </div>
                         <form action="" method="POST">
                             @csrf
@@ -36,6 +46,8 @@
                 </div>
                    
             </div>
+            <h3 class="my-4 fw-bold ">Description du produit</h3>
+            <p class="product-description" style="font-size:20px">{{$product->description}}</p>
         </section>
         <!-- Footer-->
         @include('portion.footer')

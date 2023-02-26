@@ -31,7 +31,7 @@ Route::get('/register', function () {
 
 //Routes pour la Page client
 
-Route::post('/register',[AuthController::class,"register"])->name('register');
+Route::post('/register',[AuthController::class,"register"])->name('register_user');
 Route::get('/', [HomeProductController::class, 'customer'])->name('home');
 Route::get('/solde', [HomeProductController::class, 'state'])->name('state');
 Route::get('/categorie/{id}', [HomeProductController::class, 'categorySort'])->name('categorie');

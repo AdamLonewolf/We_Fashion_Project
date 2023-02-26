@@ -28,7 +28,7 @@ class ProductSeeder extends Seeder
                 'price' => $faker->randomFloat(2), //génere un nombre décimal 
                 'is_visible' => $faker->randomElement([true, false]), //génere un booleen aléatoire
                 'state' => $faker->randomElement([true, false]), //génere un booleen aléatoire
-                'reference' =>$faker->word(16), //génere une référence
+                'reference' =>$faker->bothify('?????-####'), //génere une référence
                 'categories_id' => $categorie->id, //récupère l'id de la categorie générée
                 'picture' => "img/" . $categorie->name . "-" . $faker->numberBetween(1, 10) . ".jpg", // génere un nom de fichier composé du nom de la categorie suivit d'un id
                 // insertion des timestamp à l'aide de la classe Carbon

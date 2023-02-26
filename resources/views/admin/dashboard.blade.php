@@ -61,6 +61,8 @@
                             </div>
                         </td>
                     </tr>
+                @endforeach
+
                     <!-- Fenêtre Modale quand on clique sur supprimer-->
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
@@ -88,8 +90,6 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
-
             </tbody>
         </table>
         <div class="d-flex justify-content-center paginator">

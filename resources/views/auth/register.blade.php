@@ -15,7 +15,7 @@
     <link href="{{URL::to('css/style.css')}} " rel="stylesheet" />
 </head>
 <body style="background: linear-gradient(to right, #76b852, #8dc26f); ">
-    <form action=" {{route('register')}} " method="POST" class="login_form"> 
+    <form action=" {{route('register_user')}} " method="POST" class="login_form"> 
         @csrf
         <h3>Création d'un compte</h3>
         <h5>Renseignez les champs ci-dessous.</h5>
