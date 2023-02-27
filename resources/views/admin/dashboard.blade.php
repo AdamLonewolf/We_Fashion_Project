@@ -42,7 +42,7 @@
                     <th scope="col">Catégorie</th>
                     <th scope="col">Prix</th>
                     <th scope="col">Etat</th>
-                    <th scope="col"></th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -76,5 +76,7 @@
 
     </section>
 
-    @include('portion.footer');
+    <div style="position: relative; top:20px">
+        @include('portion.footer')
+    </div>
 @endsection

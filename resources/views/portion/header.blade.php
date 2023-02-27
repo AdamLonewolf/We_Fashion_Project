@@ -26,7 +26,7 @@
           </ul>
         </div>
         <div class="div-panier" style="margin-left:40px">
-          <a href="" style=""><i class="fa-solid fa-cart-shopping" style="color: #262626; font-size:17px; Margin: 0px 10px"></i> Mon panier</a>
+          <a href="{{route('cart')}}" style=""><i class="fa-solid fa-cart-shopping" style="color: #262626; font-size:17px; Margin: 0px 10px"></i> Mon panier</a>
         </div>
         
         @if(auth()->check())

@@ -5,7 +5,7 @@
 
 //Je parcours la liste des boutons et j'ajoute un écouteur d'événement (on click) à chacun d'eux
 
-    btndelete.forEach((button) => { //Pour chaque élément du tableau btndelete "as" button...
+    btndelete.forEach(button => { //Pour chaque élément du tableau btndelete "as" button...
         button.addEventListener('click', function(event) {
           let confirmation = confirm('Voulez-vous supprimer ce produit ?');
           if (confirmation) {

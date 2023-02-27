@@ -40,7 +40,7 @@
             <thead class="table-dark">
                 <tr>
                     <th scope="col">Nom des catégories</th>
-                    <th></th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -71,6 +71,8 @@
 
 
     </section>
-
+    <div style="position: relative; top:20px">
+        @include('portion.footer')
+    </div>
 
 @endsection

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeProductController;
@@ -56,3 +57,13 @@ Route::post('/admin/new_category',[CategoryController::class,"store"])->name('st
 Route::get('/admin/edit_category/{id}',[CategoryController::class,"edit"])->name('edit_category');
 Route::post('/admin/update_category',[CategoryController::class,"update"])->name('update_category'); 
 Route::post('/admin/destroy_category',[CategoryController::class,"destroy"])->name('destroy_category');
+
+
+//Routes pour le panier 
+
+//Ici l'utilisateur doit être forcément connecté pour pouvoir consulter ces pages
+Route::middleware('auth')->group(function () {
+Route::post('/cart/add', [CartController::class, 'addToCart'])->name('addCart');
+Route::get('/cart/show', [CartController::class, 'ShowCart'])->name('cart');
+});
+Route::post('/cart/delete', [CartController::class, 'deleteCart'])->name('deleteCart');
