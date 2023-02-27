@@ -51,7 +51,13 @@
                         <th scope="row">{{ $product->name }}</th>
                         <td>{{ $product->CategorieProduct->name }}</td>
                         <td>{{ $product->price }}</td>
-                        <td>{{ $product->state }}</td>
+                        <td>
+                            @if ($product->state == 1)
+                            En solde
+                            @else   
+                            Standard     
+                            @endif
+                        </td>
                         <td>
                             <div class="d-flex" style="">
                                     <form class="form-delete" action="{{ route('destroy_product') }}" method="post">
