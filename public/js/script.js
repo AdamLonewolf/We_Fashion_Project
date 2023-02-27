@@ -7,7 +7,7 @@
 
     btndelete.forEach(button => { //Pour chaque élément du tableau btndelete "as" button...
         button.addEventListener('click', function(event) {
-          let confirmation = confirm('Voulez-vous supprimer ce produit ?');
+          let confirmation = confirm('Voulez-vous supprimer cet élément ? Cette action est irréversible.');
           if (confirmation) {
             // Soumettre le formulaire si l'utilisateur a confirmé la suppression
             button.formulaire.submit();

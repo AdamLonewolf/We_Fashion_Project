@@ -35,6 +35,18 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+
+
+        $request->validate([
+            'name' =>'required|max:100',
+            'description' => 'required',
+            'price' => 'required',
+            'is_visible' => 'required',
+            'state' => 'required',
+            'reference' => 'required|max:16',
+            'categories_id' =>'required',
+            'file' => 'required',
+        ]);  
         //Cette fonction va nous permettre de créer un produit et de l'enregistrer dans la bdd
 
         //Enregistrement de l'image du produit
@@ -66,6 +78,8 @@ class ProductController extends Controller
         foreach ($request->size as $sizeId) {
             $product->ProductSizes()->attach($sizeId);
         }
+
+       
 
 
         return redirect()->route('dashboard'); //Il me redirige sur dashboard quand c'est terminé.

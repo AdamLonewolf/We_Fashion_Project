@@ -20,16 +20,20 @@
         <h3>Création d'un compte</h3>
         <h5>Renseignez les champs ci-dessous.</h5>
         <div class="form-group">
+
+          @foreach ($errors->all() as $error)
+          {{$error}}
+          @endforeach
             <label for="name">Nom d'utilisateur</label>
-            <input type="text" class="form-control" id="name" name="name" placeholder="Entrez votre nom d'utilisateur" required>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Entrez votre nom d'utilisateur">
           </div>
         <div class="form-group">
           <label for="email">Adresse Mail</label>
-          <input type="email" class="form-control" id="email" name="email" placeholder="Entrez votre adresse mail" required>
+          <input type="email" class="form-control" id="email" name="email" placeholder="Entrez votre adresse mail">
         </div>
         <div class="form-group">
           <label for="password">Mot de passe</label>
-          <input type="password" class="form-control" id="password" name="password" placeholder="entrez votre mot de passe" required>
+          <input type="password" class="form-control" id="password" name="password" placeholder="entrez votre mot de passe">
         </div>
         <div class="create-account px-2 text-center py-3">
             <p>Vous avez déjà un compte ? <a href="{{route('login')}}">Se connecter au compte</a></p> 

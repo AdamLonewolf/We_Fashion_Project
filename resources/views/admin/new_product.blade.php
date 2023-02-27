@@ -21,6 +21,9 @@
 <body style="background: linear-gradient(to right, #76b852, #8dc26f); ">
     <form class="form-new" action="{{route('store_product')}}" method="POST" enctype="multipart/form-data">
         @csrf
+        @foreach ($errors->all() as $error)
+            {{$error}}
+        @endforeach
         <h3 class="text-center my-3">Création d'un nouveau produit</h3>
         <h5 class="text-center my-2">Veuillez renseigner les champs ci-dessous</h5>
         <div class="wrapper-bloc d-flex">

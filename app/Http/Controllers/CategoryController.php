@@ -32,6 +32,10 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //Créer une nouvelle catégorie
+        
+        $request->validate([
+            'name' =>'required|max:100'
+        ]);     
 
         $category = Category::create([
             'name' => $request->name,

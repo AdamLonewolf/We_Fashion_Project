@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 
 class CartController extends Controller
 {
@@ -20,6 +22,13 @@ class CartController extends Controller
      * Fonction pour ajouter des produits au panier
      */
      public function addToCart(Request $request){
+
+
+      //Critères de validation du formulaire
+
+      $request->validate([
+         'quantity' =>'required|numeric'
+     ]);     
 
       //On recherche d'abord l'identifiant du produit que le client cherche à ajouter
 

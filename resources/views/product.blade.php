@@ -38,6 +38,9 @@
                         
                             <form action="{{route('addCart')}}" method="POST">
                                 @csrf
+                                @foreach ($errors->all() as $error)
+                                <li>{{$error = "Veuillez remplir le champ"}}</li><br>
+                                @endforeach
                                 <div class="d-inline-flex justify-center align-items-center" style="">
                                     <input type="hidden" name="id" value="{{ $product->id }}">
                                 <input class="form-control text-center me-3" id="quantity" name="quantity" type="num" value="" style="max-width: 3rem" />

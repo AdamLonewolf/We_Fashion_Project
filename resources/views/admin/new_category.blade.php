@@ -21,6 +21,9 @@
 <body style="background: linear-gradient(to right, #76b852, #8dc26f);">
     <form class="form-category" action="{{route('store_category')}}" method="POST" enctype="multipart/form-data">
         @csrf
+        @foreach ($errors->all() as $error)
+            <li>{{$error}}</li><br>
+        @endforeach
         <h3 class="text-center my-3">Création d'une nouvelle catégorie</h3>
                 <div class="form-group my-3">
                     <label for="name">Nom de la catégorie</label>

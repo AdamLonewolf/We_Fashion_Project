@@ -15,6 +15,7 @@
                 </tr>
             </thead>
             <tbody>
+                
                 @foreach ($cart as $product)
                     <tr class="elm">
                         <th scope="row"><img style="width:60px ; height:auto;" src="{{ URL::to($product['picture']) }}"
@@ -23,8 +24,9 @@
                             <div class="pos-td">{{ $product['name'] }}</div>
                         </td>
                         <td>
+                            
                             <div class="pos-td"><input class="form-control text-center me-3" id="quantity" type="num"
-                                    name="quantity" value="{{ $product['quantity'] }}" style="max-width: 3rem" />
+                                    name="quantity" value="{{ $product['quantity'] }}" style="max-width: 3rem">
                             </div>
                         </td>
                         <td>
